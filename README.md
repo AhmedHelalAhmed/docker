@@ -161,3 +161,20 @@ docker build -t goals:latest .
 
 docker build -t goals:1 .
 ```
+
+```
+
+docker login
+
+docker logout
+
+# to share image with others throw docker hub
+# note : image should include uername example: ahmedhelalahmed/node-app
+docker push <image_name>
+
+# to pull image from docker hub
+docker pull <image_name>
+
+# to rename image name
+docker tag <old_image_name:tag> <new_image_name:tag>
+```
