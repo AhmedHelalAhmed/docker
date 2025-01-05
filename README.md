@@ -177,4 +177,16 @@ docker pull <image_name>
 
 # to rename image name
 docker tag <old_image_name:tag> <new_image_name:tag>
+
+# pull image from docker
+# https://hub.docker.com/layers/academind/node-hello-world/latest/images/sha256-7214ae016bd22c5b1dacfdb8dea50822fe4ec5c365355bf2acc193774cfb412a
+docker pull --platform linux/amd64 academind/node-hello-world
+
+# run the image
+docker run --platform linux/amd64 academind/node-hello-world
+
+# to run image with platform and publish port 3000
+# you can see the app running on localhost:3000 in browser (Hello from inside the very basic Node app!)
+docker run -p 3000:3000 -d --platform linux/amd64 academind/node-hello-world
 ```
+
