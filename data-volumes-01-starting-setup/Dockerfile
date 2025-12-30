@@ -15,6 +15,16 @@ COPY . .
 # we want to expose port 80 to the outside world
 EXPOSE 80
 
+# add volume here for permanent files [Path inside container - path outside contrainer]
+# To  build: docker build -t feedback-node:volumes .
+# To Run: docker run -p 3000:80 -d --name feedback-node:volumes --rm feedback-node:volumes
+# TO Run: docker run -p 3000:80 -d --name feedback-app --rm feedback-node:volumes
+
+# Stop contrianer: docker stop feedback-app
+# To remove the image: docker rmi feedback-node:volumes
+
+VOLUME ["/app/feedback"]
+
 # when we run the container, we want to start the server
 CMD ["node","server.js"]
 
