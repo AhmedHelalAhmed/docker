@@ -92,3 +92,4 @@ CMD ["npm","start"]
 
 # this is good practise to add read only folders like temp like that
 # docker run -p 3000:80 -d --rm --name feedback-app -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-node:volumes
+# to avoid change files inside your container that you should not change it
