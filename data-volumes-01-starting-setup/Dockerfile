@@ -100,3 +100,11 @@ CMD ["npm","start"]
 # docker volume ls
 # the you can use the volume you created in the commend like that:
 # docker run -p 3000:80 -d --rm --name feedback-app -v feedback-files:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-node:volumes
+
+# To see info about volume: docker volume inspect feedback
+# to delete a volume: docker volume rm feedback-files
+
+# to remove files that exists when we restart the containers
+# docker stop feedback-app
+# docker rm feedback
+# Note: when we remove volume all data inside it lost
