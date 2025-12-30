@@ -34,7 +34,7 @@ EXPOSE 80
 # Important is that name volume name -> feedback
 
 # when we run the container, we want to start the server
-CMD ["node","server.js"]
+# CMD ["node","server.js"]
 
 # To  build: docker build -t feedback-node .
 # To Run: docker run -p 3000:80 -d --name feedback-app --rm feedback-node
@@ -77,3 +77,13 @@ CMD ["node","server.js"]
 # node_modules volume ensure that this folder not overwrittem by folder Bind Mounts of folder
 
 # to see logs:  docker logs feedback-app
+
+
+
+
+# when run the container, use nodemon to restart automatically
+CMD ["npm","start"]
+# stop container: docker stop feedback-app
+# remove the image: docker rmi feedback-node:volumes
+# To  build: docker build -t feedback-node:volumes .
+# To run docker: docker run -p 3000:80 -d --rm --name feedback-app -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/node_modules feedback-node:volumes

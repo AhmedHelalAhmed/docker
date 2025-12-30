@@ -36,7 +36,6 @@ app.post('/create', async (req, res) => {
     if (exists) {
       res.redirect('/exists');
     } else {
-      console.log('Test');
       // we cannot use rename here, but we can use copyFile and unlink
       await fs.copyFile(tempFilePath, finalFilePath);
       await fs.unlink(tempFilePath);
