@@ -66,3 +66,11 @@ CMD ["node","server.js"]
 # Bind Mounts - Shortcuts
 # macOS / Linux: -v $(pwd):/app
 # Windows:  -v "%cd%":/app
+
+# to get files inside container accessed outside container we use anonymous volume
+# docker stop feedback-app
+# remove container: docker rm feedback-app
+# VOLUME ["/app/node_modules"]
+# or
+# docker run -p 3000:80 -d --rm --name feedback-app -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/node_modules feedback-node:volumes
+# now we can edit HTML file and it can take effect without any new build or starting the container and node_modules we got it from insider container
