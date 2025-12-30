@@ -56,3 +56,13 @@ CMD ["node","server.js"]
 # named volumes can be way to go if you don't want to edit data from host machine
 # but if you need to edit it
 # then we should use bind mounts
+# it affact the container not the image  so we need to add it when we run the container
+# docker stop feedback-app
+# this will share complete the whole folder
+# docker run -p 3000:80 -d --name feedback-app --rm -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" feedback-node:volumes
+# to avoid delete it immediately:
+# docker run -p 3000:80 -d --name feedback-app -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" feedback-node:volumes
+
+# Bind Mounts - Shortcuts
+# macOS / Linux: -v $(pwd):/app
+# Windows:  -v "%cd%":/app
