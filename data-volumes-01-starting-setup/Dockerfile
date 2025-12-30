@@ -88,3 +88,7 @@ CMD ["npm","start"]
 # remove the image: docker rmi feedback-node:volumes
 # To  build: docker build -t feedback-node:volumes .
 # To run docker: docker run -p 3000:80 -d --rm --name feedback-app -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/node_modules feedback-node:volumes
+
+
+# this is good practise to add read only folders like temp like that
+# docker run -p 3000:80 -d --rm --name feedback-app -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-node:volumes
