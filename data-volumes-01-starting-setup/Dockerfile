@@ -1,5 +1,11 @@
 FROM node:14
 
+ARG DEFAULT_PORT=80
+# two images with the same docker file but different port
+# docker build -t feedback-node:web-app .
+# docker build -t feedback-node:dev --build-arg DEFAULT_PORT=8000 .
+
+
 # Create app directory set as the working directory
 WORKDIR /app
 
@@ -13,7 +19,7 @@ RUN npm install
 COPY . .
 
 # evv variable and the default value is 80
-ENV PORT 80
+ENV PORT $DEFAULT_PORT
 # docker build -t feedback-app:env .
 #  docker run -p 3000:80 -d --rm --name feedback-app -v feedback-files:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-app:env
 
