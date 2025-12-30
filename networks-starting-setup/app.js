@@ -51,7 +51,7 @@ app.post('/favorites', async (req, res) => {
 
 app.get('/movies', async (req, res) => {
   try {
-    const response = await axios.get('https://swapi.dev/api/films');
+    const response = await axios.get('http://swapi.py4e.com/api/films/');
     res.status(200).json({ movies: response.data });
   } catch (error) {
     res.status(500).json({ message: 'Something went wrong.' });
@@ -67,14 +67,16 @@ app.get('/people', async (req, res) => {
   }
 });
 
-mongoose.connect(
-  'mongodb://localhost:27017/swfavorites',
-  { useNewUrlParser: true },
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      app.listen(3000);
-    }
-  }
-);
+
+app.listen(3000);
+// mongoose.connect(
+//   'mongodb://localhost:27017/swfavorites',
+//   { useNewUrlParser: true },
+//   (err) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       app.listen(3000);
+//     }
+//   }
+// );
