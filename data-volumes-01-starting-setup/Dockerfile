@@ -52,6 +52,7 @@ EXPOSE 80
 # docker volume rm VOL_NAME
 # or
 # docker volume prune
+# but will removed automatically when you create container with option --rm
 
 # named volumes can be way to go if you don't want to edit data from host machine
 # but if you need to edit it
