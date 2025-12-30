@@ -12,8 +12,22 @@ RUN npm install
 # copy the current directory contents into the container at /app
 COPY . .
 
+# evv variable and the default value is 80
+ENV PORT 80
+# docker build -t feedback-app:env .
+#  docker run -p 3000:80 -d --rm --name feedback-app -v feedback-files:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-app:env
+
+# we don't need to build the image because of env variable
+# docker run -p 3000:8000 --env PORT=8000 -d --rm --name feedback-app -v feedback-files:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-app:env
+# shortcut
+# docker run -p 3000:8000 -e PORT=8000 -d --rm --name feedback-app -v feedback-files:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-app:env
+
+# If you want to use file and read config from it
+# docker run -p 3000:8000 --env-file ./.env -d --rm --name feedback-app -v feedback-files:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-app:env
+
+
 # we want to expose port 80 to the outside world
-EXPOSE 80
+EXPOSE $PORT
 
 # add volume here for permanent files [Path inside container - path outside contrainer]
 # To  build: docker build -t feedback-node:volumes .
