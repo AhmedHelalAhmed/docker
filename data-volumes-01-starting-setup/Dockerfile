@@ -93,3 +93,10 @@ CMD ["npm","start"]
 # this is good practise to add read only folders like temp like that
 # docker run -p 3000:80 -d --rm --name feedback-app -v feedback:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-node:volumes
 # to avoid change files inside your container that you should not change it
+
+
+# how to create volume manually:
+# docker volume create feedback-files
+# docker volume ls
+# the you can use the volume you created in the commend like that:
+# docker run -p 3000:80 -d --rm --name feedback-app -v feedback-files:/app/feedback -v "/Users/ahmedhelal/mypc/projects/docker/data-volumes-01-starting-setup:/app" -v /app/temp -v /app/node_modules feedback-node:volumes
