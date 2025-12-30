@@ -52,3 +52,7 @@ CMD ["node","server.js"]
 # docker volume rm VOL_NAME
 # or
 # docker volume prune
+
+# named volumes can be way to go if you don't want to edit data from host machine
+# but if you need to edit it
+# then we should use bind mounts
