@@ -44,3 +44,11 @@ CMD ["node","server.js"]
 # To Run: docker run -p 3000:80 -d --name feedback-app feedback-node
 # docker stop feedback-app
 # docker start feedback-app
+
+
+# Note for anonymous volume it will exists if you run container without option -rm
+# even you removed the containter after that
+# You need to remove them manually using
+# docker volume rm VOL_NAME
+# or
+# docker volume prune
