@@ -24,7 +24,14 @@ EXPOSE 80
 # To remove the image: docker rmi feedback-node:volumes
 # This is anonymous volume only exists when container is running and disappear when we remove container (option --rm)
 # To see volumes: docker volume ls
-VOLUME ["/app/feedback"]
+# VOLUME ["/app/feedback"] we will create named volume that will exists when container removed
+
+# Start docker with name volume with:  docker run -p 3000:80 -d --name feedback-app --rm -v feedback:/app/feedback feedback-node:volumes
+# name in host : folder path in container
+# named vaolumes are not attached to container
+# docker volume ls
+# build container with the same volume: docker run -p 3000:80 -d --name feedback-app --rm -v feedback:/app/feedback feedback-node:volumes
+# Important is that name volume name -> feedback
 
 # when we run the container, we want to start the server
 CMD ["node","server.js"]
