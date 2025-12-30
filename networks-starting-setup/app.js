@@ -68,13 +68,11 @@ app.get('/people', async (req, res) => {
 });
 
 
-app.listen(3000);
-
 //  'mongodb://localhost:27017/swfavorites'
 //  should be to make docker see local machine
 //  'mongodb://host.docker.internal:27017/swfavorites',
 mongoose.connect(
-  'mongodb://localhost:27017/swfavorites',
+  'mongodb://172.17.0.2:27017/swfavorites',
   { useNewUrlParser: true },
   (err) => {
     if (err) {
