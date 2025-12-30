@@ -22,7 +22,8 @@ EXPOSE 80
 
 # Stop contrianer: docker stop feedback-app
 # To remove the image: docker rmi feedback-node:volumes
-
+# This is anonymous volume only exists when container is running and disappear when we remove container (option --rm)
+# To see volumes: docker volume ls
 VOLUME ["/app/feedback"]
 
 # when we run the container, we want to start the server
