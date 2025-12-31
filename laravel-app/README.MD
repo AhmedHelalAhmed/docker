@@ -15,6 +15,10 @@ docker-compose up -d server
 # force rebuild images
 docker-compose up -d --build server
 
+docker-compose run --rm artisan migrate
+
+docker-compose run --rm npm install
+
 ```
 
 ## sources
