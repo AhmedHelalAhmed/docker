@@ -89,4 +89,13 @@ docker build -t goals-node .
 # set env variable in docker run for username
 docker run --name goals-backend -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/backend:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=ahmed --rm -d -p 80:80 --network goals-net goals-node
 docker logs goals-backend
+
+# live source code for frontend
+docker stop goals-frontend
+docker run -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/frontend/src:/app/src --name goals-frontend  --rm -d -p 3000:3000 -it goals-react
+
+# add .dockerignore to frontend folder to avoid uploading node_modules
+docker stop goals-frontend
+docker build -t goals-react .
+docker run -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/frontend/src:/app/src --name goals-frontend  --rm -d -p 3000:3000 -it goals-react
 ```
