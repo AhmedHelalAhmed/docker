@@ -6,7 +6,12 @@ services:
     volumes:
       - ./nginx/default.conf:/etc/nginx/nginx.conf:ro
 
-#  php:
+  php:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html:delegated
 #  mysql:
 #  composer:
 #  artisan:
