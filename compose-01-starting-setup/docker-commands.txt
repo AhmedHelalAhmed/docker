@@ -67,3 +67,16 @@ docker stop mongodb goals-backend goals-frontend
 sources
 ---------------------
 https://docs.docker.com/reference/compose-file/
+https://docs.docker.com/compose/install/
+
+---------------------
+commands
+---------------------
+docker image prune -a
+docker container prune
+docker-compose up
+docker-compose down
+
+# To also remove volumes add -v flag
+docker-compose down -v
+

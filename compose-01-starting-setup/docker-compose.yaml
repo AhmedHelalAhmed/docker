@@ -1,0 +1,21 @@
+# In modern Docker Compose (Compose V2) you don’t need to specify version at all.
+# Docker Compose v2 auto-detects the schema and the version field is now deprecated.
+
+version: "3.8"
+services:
+  mongodb:
+    image: 'mongo'
+    volumes:
+      - data:/data/db
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: ahmed
+#      MONGO_INITDB_ROOT_PASSWORD: secret
+#      - MONGO_INITDB_ROOT_USERNAME=ahmed # another way to set env vars
+    env_file:
+      - ./env/mongo.env
+
+  #backend:
+
+  #frontend:
+volumes:
+  data:
