@@ -32,7 +32,16 @@ services:
       - ./env/backend.env
     depends_on:
       - mongodb # first run mongodb service as backend depend on mongodb
-  #frontend:
+  frontend:
+    build: './frontend'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true # needed1: -it interact with tty
+    tty: true # needed2: -it interact with tty
+    depends_on:
+      - backend
 volumes: # just named volumes
   data:
   logs:
