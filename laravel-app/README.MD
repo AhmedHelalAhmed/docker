@@ -12,6 +12,9 @@ docker-compose down -v
 # after depends on it will run app dependencies
 docker-compose up -d server
 
+# force rebuild images
+docker-compose up -d --build server
+
 ```
 
 ## sources
