@@ -23,11 +23,25 @@ docker network create goals-net
 docker run --name mongodb --rm -d  --network goals-net mongo 
 
 ## we need to change database host to mongodb in backend hence we need to rebuild backend
+cd backend
 docker build -t goals-node .
 docker run --name goals-backend --rm -d --network goals-net goals-node
 
 ## we need to change in frontend hence we need to rebuild frontend in App.js change localhost to goals-backend
 ## we still need port here to able to access frontend from browser
+cd frontend
 docker build -t goals-react .
 docker run --name goals-frontend --rm -d --network goals-net -p 3000:3000 -it goals-react
+
+## the issue App.js run in the brower not in container
+## so it can not access backend via http://goals-backend/goals
+## We should use http://localhost/goals as backend as this is what the browser understand
+## this means we need to publish port 80 in backend container
+## no need for network in frontend
+docker build -t goals-react .
+docker stop goals-frontend
+docker run --name goals-frontend --rm -d -p 3000:3000 -it goals-react
+docker stop goals-frontend
+docker stop goals-backend
+docker run --name goals-backend --rm -d -p 80:80 --network goals-net goals-node
 ```
