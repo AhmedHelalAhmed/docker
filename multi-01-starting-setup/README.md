@@ -81,4 +81,12 @@ docker run --name goals-backend -v /Users/ahmedhelal/mypc/projects/docker/multi-
 docker logs goals-backend
 # try to change source code in backend and see logs to ensure it live reload
 docker logs goals-backend
+
+# let read database data from env
+# change in dockerfile and app.js
+docker stop goals-backend
+docker build -t goals-node .
+# set env variable in docker run for username
+docker run --name goals-backend -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/backend:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=ahmed --rm -d -p 80:80 --network goals-net goals-node
+docker logs goals-backend
 ```
