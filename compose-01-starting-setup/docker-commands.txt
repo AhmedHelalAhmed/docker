@@ -9,7 +9,7 @@ Run MongoDB Container
 ---------------------
 
 docker run --name mongodb \
-  -e MONGO_INITDB_ROOT_USERNAME=max \
+  -e MONGO_INITDB_ROOT_USERNAME=ahmed \
   -e MONGO_INITDB_ROOT_PASSWORD=secret \
   -v data:/data/db \
   --rm \
@@ -31,7 +31,7 @@ docker run --name goals-backend \
   -e MONGODB_USERNAME=max \
   -e MONGODB_PASSWORD=secret \
   -v logs:/app/logs \
-  -v /Users/maximilianschwarzmuller/development/teaching/udemy/docker-complete/backend:/app \
+  -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/backend:/app \
   -v /app/node_modules \
   --rm \
   -d \
@@ -50,7 +50,7 @@ Run React SPA Container
 ---------------------
 
 docker run --name goals-frontend \
-  -v /Users/maximilianschwarzmuller/development/teaching/udemy/docker-complete/frontend/src:/app/src \
+  -v Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/frontend/src:/app/src \
   --rm \
   -d \
   -p 3000:3000 \
