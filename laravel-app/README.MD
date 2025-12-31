@@ -8,6 +8,10 @@ docker-compose up -d server php mysql
 docker-compose up -d server php mysql --build
 
 docker-compose down -v
+
+# after depends on it will run app dependencies
+docker-compose up -d server
+
 ```
 
 ## sources
