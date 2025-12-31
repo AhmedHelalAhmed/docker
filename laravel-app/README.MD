@@ -19,6 +19,8 @@ docker-compose run --rm artisan migrate
 
 docker-compose run --rm npm install
 
+docker-compose up -d --build server
+
 ```
 
 ## sources
