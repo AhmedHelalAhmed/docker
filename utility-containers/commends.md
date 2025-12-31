@@ -33,3 +33,19 @@ docker stop confident_ride
 # this will override the default command and will execute npm init
 docker run -it node npm init
 ```
+
+```docker
+# Run service name <npm> + command
+# Using run it will create a container and shut it down not removing it 
+# If you want to remove it use rm
+docker-compose run npm init
+docker-compose run npm install express --save
+
+# To remove the container use rm like that
+# so once the command is done it will be remove container
+docker-compose run --rm npm init
+
+# to remove all containers we use
+docker container prune
+
+```
