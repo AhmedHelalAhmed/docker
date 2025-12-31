@@ -68,4 +68,17 @@ docker run --name goals-backend --rm -d -p 80:80 --network goals-net goals-node
 ## see 
 # https://hub.docker.com/_/mongo
 # https://stackoverflow.com/questions/40608669/what-does-authsource-means-in-mongo-database-url
+
+# live source code update
+docker stop goals-backend
+docker run --name goals-backend -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/backend:/app -v logs:/app/logs -v /app/node_modules --rm -d -p 80:80 --network goals-net goals-node
+docker ps | grep 'backend'
+# use nodemon to live reload
+docker stop goals-backend
+docker build -t goals-node .
+docker run --name goals-backend -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/backend:/app -v logs:/app/logs -v /app/node_modules --rm -d -p 80:80 --network goals-net goals-node
+# check logs to ensure we use nodemon
+docker logs goals-backend
+# try to change source code in backend and see logs to ensure it live reload
+docker logs goals-backend
 ```
