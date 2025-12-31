@@ -34,6 +34,7 @@ docker build -t goals-react .
 docker run --name goals-frontend --rm -d --network goals-net -p 3000:3000 -it goals-react
 
 ## the issue App.js run in the brower not in container
+## docker can not help us to automatic IP resolving to backend container react just run in the browser
 ## so it can not access backend via http://goals-backend/goals
 ## We should use http://localhost/goals as backend as this is what the browser understand
 ## this means we need to publish port 80 in backend container
