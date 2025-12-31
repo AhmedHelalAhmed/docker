@@ -45,4 +45,24 @@ docker run --name goals-frontend --rm -d -p 3000:3000 -it goals-react
 docker stop goals-frontend
 docker stop goals-backend
 docker run --name goals-backend --rm -d -p 80:80 --network goals-net goals-node
+
+
+# starting mongodb again loss the data we stored on it
+docker stop mongodb
+docker run --name mongodb --rm -d  --network goals-net mongo 
+
+# save the data using named volume
+docker stop mongodb
+docker run --name mongodb -v data:/data/db --rm -d  --network goals-net mongo 
+
+
+# use authentication in mongodb
+docker stop mongodb
+## you must delete the volume first with name data to able to set authentication
+docker volume rm data
+docker run --name mongodb -v data:/data/db --rm -d  --network goals-net -e MONGO_INITDB_ROOT_USERNAME=ahmed -e MONGO_INITDB_ROOT_PASSWORD=secret mongo 
+## now we need to update backend to use authentication
+docker stop goals-backend
+docker build -t goals-node .
+docker run --name goals-backend --rm -d -p 80:80 --network goals-net goals-node
 ```
