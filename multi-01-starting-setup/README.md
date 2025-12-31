@@ -65,4 +65,7 @@ docker run --name mongodb -v data:/data/db --rm -d  --network goals-net -e MONGO
 docker stop goals-backend
 docker build -t goals-node .
 docker run --name goals-backend --rm -d -p 80:80 --network goals-net goals-node
+## see 
+# https://hub.docker.com/_/mongo
+# https://stackoverflow.com/questions/40608669/what-does-authsource-means-in-mongo-database-url
 ```
