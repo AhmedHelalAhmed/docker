@@ -28,7 +28,7 @@ Run Node API Container
 ---------------------
 
 docker run --name goals-backend \
-  -e MONGODB_USERNAME=max \
+  -e MONGODB_USERNAME=ahmed \
   -e MONGODB_PASSWORD=secret \
   -v logs:/app/logs \
   -v /Users/ahmedhelal/mypc/projects/docker/multi-01-starting-setup/backend:/app \

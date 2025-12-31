@@ -14,8 +14,25 @@ services:
     env_file:
       - ./env/mongo.env
 
-  #backend:
+  backend:
+    build: './backend' # a simple way to build the folder contains Dockerfile
+#    build:
+#      context: ./backend
+#      dockerfile: Dockerfile # you change the file name here to your file name, for example, Dockerfile-dev
+#      args:
+#        some-arg: value
+    ports:
+      - '80:80' #host port:container port
 
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app # we can use a relative path here
+      - /app/node_modules # anonymous volume
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb # first run mongodb service as backend depend on mongodb
   #frontend:
-volumes:
+volumes: # just named volumes
   data:
+  logs:
