@@ -80,3 +80,9 @@ docker-compose down
 # To also remove volumes add -v flag
 docker-compose down -v
 
+# To force rebuild images for your own images
+# we need this because docker-compose will use cached images not built it every time
+docker-compose up --build
+
+# Just build images not run them
+docker-compose build
