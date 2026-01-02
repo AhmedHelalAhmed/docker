@@ -32,6 +32,7 @@ docker tag node-dep-example ahmedhelalahmed/node-example-1
 docker login
 docker push ahmedhelalahmed/node-example-1
 ```
+# https://hub.docker.com/repository/docker/ahmedhelalahmed/node-example-1/tags
 # in ec2
 ```
 docker run -d --rm -p 80:80 ahmedhelalahmed/node-example
