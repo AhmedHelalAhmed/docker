@@ -37,3 +37,16 @@ docker push ahmedhelalahmed/node-example-1
 docker run -d --rm -p 80:80 ahmedhelalahmed/node-example
 ```
 # you can see the app running on port 80 in http://54.72.161.175/
+
+# process for push update to ec2
+```
+docker build -t node-dep-example-1 .
+docker tag node-dep-example-1 ahmedhelalahmed/node-example-1
+docker push ahmedhelalahmed/node-example-1
+# in ec2
+docker ps
+docker stop brave_hopper
+# to get newest version of the image
+docker pull ahmedhelalahmed/node-example-1
+docker run -d --rm -p 80:80 ahmedhelalahmed/node-example-1
+```
